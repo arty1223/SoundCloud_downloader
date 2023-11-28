@@ -9,16 +9,17 @@ assert type(playlist) is Playlist
 def fncheck(filename : str):
         result = filename
         for i in filename:
-            if i in '<>:"/\|?*'+ "'":
+            if i in ' <>:"/\|?*'+ "'":
                 result = result.replace(i,"")     
         return result
 print(playlist.title)
+dirname = fncheck(playlist.title)
 if __name__ == '__main__':
     try:
-        chdir(playlist.title) #you can change "playlist.title" to desired directory name
+        chdir(dirname) #you can change "dirname" to desired directory name
     except:
-        mkdir(playlist.title)
-        chdir(playlist.title)
+        mkdir(dirname)
+        chdir(dirname)
     time = datetime.now()
     amount = len(playlist)
     a = 0
