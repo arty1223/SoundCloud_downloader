@@ -12,13 +12,13 @@ def fncheck(filename : str):
             if i in '<>:"/\|?*'+ "'":
                 result = result.replace(i,"")     
         return result
-
+print(playlist.title)
 if __name__ == '__main__':
     try:
-        chdir('deep_ambient')
+        chdir(playlist.title) #you can change "playlist.title" to desired directory name
     except:
-        mkdir('deep_ambient')
-        chdir('deep_ambient')
+        mkdir(playlist.title)
+        chdir(playlist.title)
     time = datetime.now()
     amount = len(playlist)
     a = 0
@@ -36,7 +36,7 @@ if __name__ == '__main__':
     except KeyboardInterrupt:
         playlistfile.close()
         print('interupt', filename, f'{round(a/(amount-1)*100,1)}%')
-        input()
+        exit()
     print(f"""done!
 took {datetime.now() - time}""")
-    input()
+    exit()
